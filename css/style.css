@@ -1,0 +1,45 @@
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+main{
+    font-size: 1.6rem;
+    font-family: 'noto sans','roboto',sans-serif;
+    max-width: 1020px;
+    margin: auto;
+}
+
+#categorias{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.displayDeTareas{
+    width: 450px;
+    max-width: 498px;
+    height: 240px;
+    border: 1px black solid;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#form{
+    max-width: 400px;
+    margin: auto;
+}
+
+input , label, select{
+    width: 100%;
+}
+
+li{
+    font-style: italic;
+    list-style: none;
+}

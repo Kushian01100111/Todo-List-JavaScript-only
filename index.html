@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&family=Noto+Sans:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>TODO Personal</title>
+</head>
+<body>
+    <main>
+        <section id="categorias">
+        <div class="displayDeTareas" id="compras">
+            <h2>Compras</h2>
+        </div>
+        <div class="displayDeTareas" id="trabajo">
+            <h2>Trabajo</h2>
+        </div>
+        <div class="displayDeTareas" id="universidad">
+            <h2>Universidad</h2>
+        </div>
+        <div class="displayDeTareas" id="ocio">
+            <h2>Ocio</h2>
+        </div>
+        <div class="displayDeTareas" id="otro">
+            <h2>Otro</h2>
+        </div>
+    </section>
+        <section id="form">
+                <label for="nombreTarea">Nombre de la tarea</label>
+                <input type="text"  id="nombreTarea">
+                <label for="nombreCategoria">Categoria</label>
+                <select name="" id="nombreCategoria">
+                    <option value="Compras">Compras</option>
+                    <option value="Trabajo">Trabajo</option>
+                    <option value="Universidad">Universidad</option>
+                    <option value="Ocio">Ocio</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <label for="fechaParaFinalizar">Fecha en la que quieres finalizar la tarea</label>
+                <input type="date" name="" id="fechaParaFinalizar">
+                <button>Ingresar tarea</button>
+        </section>
+    </main>
+    
+</body>
+<script src="./js/miarchivo.js"></script>
+</html>
