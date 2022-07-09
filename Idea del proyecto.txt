@@ -14,3 +14,9 @@ tareas me muestra las tareas agregadas a el objeto de las tareas.
 -Prompt: Preguntas de el nombre de la tarea, categoria de la tarea, fecha
 de finalizacion de la tarea.
 -Alert: me muestra las tareas agregadas
+
+**Entrega 09-07-2022**
+-localStorege añadido en la funcion de generar una tarea
+-JSON y stringify utilizado
+-añadida una funcion que checkea si hay elementos dentro del localstorege
+me los parcea y los introduce nuevamente en el DOM.

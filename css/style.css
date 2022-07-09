@@ -24,7 +24,7 @@ main{
 .displayDeTareas{
     width: 450px;
     max-width: 498px;
-    height: 240px;
+    min-height: 240px;
     border: 1px black solid;
     border-radius: 5px;
     text-align: center;
@@ -42,4 +42,8 @@ input , label, select{
 li{
     font-style: italic;
     list-style: none;
+}
+
+.eliminar{
+    
 }

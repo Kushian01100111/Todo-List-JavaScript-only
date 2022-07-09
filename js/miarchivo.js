@@ -35,6 +35,18 @@ class Tareas{//Constructor con la funcion de crear un nueva tarea
 
 let one ;
 
+//function eliminar(categoria, nombre){
+  //  let index; 
+   // for(let i = 0; i < todasLasTareas[categoria].length; i++){
+     //   if(todasLasTareas[categoria][i].nombre === nombre){
+       //     index = i
+     //   }
+   // }
+   // todasLasTareas[categoria].splice(index, 1)
+   // localStorage.removeItem(nombre)
+    //location.reload()
+//}
+
 function Compras (){//Me generan una lista dependiendo los objetos o tareas que se encuentran dentro de la categoria seleccionada
 let Compras = todasLasTareas["Compras"]
 
@@ -43,8 +55,14 @@ let Compras = todasLasTareas["Compras"]
     document.getElementById('compras').appendChild(ul)
     let li = document.createElement('li')
     ul.appendChild(li)
-
     li.innerHTML += n.nombre
+
+       // let eliminarTarea = document.createElement('button')
+       // li.appendChild(eliminarTarea)
+        //eliminarTarea.innerText = "Eliminar tarea"
+       // eliminarTarea.classList = "eliminar"
+       // eliminarTarea.id = `${n.nombre}`
+        //document.querySelector(`#${n.nombre}`).addEventListener('click', eliminar("Compras",n.nombre))
  })
 }
 
@@ -58,6 +76,12 @@ Trabajo.forEach(n=>{
    ul.appendChild(li)
 
    li.innerHTML += n.nombre
+
+   //let eliminarTarea = document.createElement('button')
+     //   li.appendChild(eliminarTarea)
+     //   eliminarTarea.innerText = "Eliminar tarea"
+     //   eliminarTarea.classList = "eliminar"
+     //   document.querySelector(`#${n.nombre}`).addEventListener('click', eliminar("Trabajo",n.nombre))
 })
 
 }
@@ -72,6 +96,12 @@ let Universidad = todasLasTareas["Universidad"]
     ul.appendChild(li)
 
     li.innerHTML += n.nombre
+
+    //let eliminarTarea = document.createElement('button')
+       // li.appendChild(eliminarTarea)
+       // eliminarTarea.innerText = "Eliminar tarea"
+       // eliminarTarea.classList = "eliminar"
+       // document.querySelector(`#${n.nombre}`).addEventListener('click', eliminar("Universidad",n.nombre))
  })
 }
 
@@ -85,6 +115,12 @@ let Ocio = todasLasTareas["Ocio"]
     ul.appendChild(li)
 
     li.innerHTML += n.nombre
+
+   // let eliminarTarea = document.createElement('button')
+       // li.appendChild(eliminarTarea)
+       // eliminarTarea.innerText = "Eliminar tarea"
+       // eliminarTarea.classList = "eliminar"
+       // document.querySelector(`#${n.nombre}`).addEventListener('click',eliminar("Ocio",n.nombre))
  })
 }
 
@@ -98,6 +134,12 @@ function Otro(){
     ul.appendChild(li)
 
     li.innerHTML += n.nombre
+
+   // let eliminarTarea = document.createElement('button')
+      //  li.appendChild(eliminarTarea)
+       // eliminarTarea.innerText = "Eliminar tarea"
+       // eliminarTarea.classList = "eliminar"
+       // document.querySelector(`#${n.nombre}`).addEventListener('click',eliminar("Otro",n.nombre))
  })
 }
 
@@ -112,8 +154,10 @@ function generaNuevaTarea(){ //Me genera una nueva tarea con datos provenientes 
             if(categorias.indexOf(categoria.toUpperCase())  !== -1){
                 one = new Tareas(tarea,categoria,fecha)
                 todasLasTareas[categoria].shift()
-                 todasLasTareas[categoria].push(one)
-                one.tuTareaFueAñadida()
+                todasLasTareas[categoria].push(one)
+
+                localStorage.setItem(one.nombre, JSON.stringify(one))// Añade las nuevas tares a localstorage y utiliza JSON stringify para pasar el objeto a JSON.
+                one.tuTareaFueAñadida();
                if(categoria === "Compras"){
                 Compras()
                }else if(categoria === "Trabajo"){
@@ -129,7 +173,25 @@ function generaNuevaTarea(){ //Me genera una nueva tarea con datos provenientes 
          }
  }   
 
- 
+ function revisarLocalStorage(){//me revisa si hay elemento guardados en el localstorege 
+    if(localStorage.length > 0 ){//si elementos en localstorege me los introduce en el array de todas las tareas
+        for(let i = 0 ;  i < localStorage.length; i++){
+            let elemento = localStorage.key(i)
+            let elementoParceado = JSON.parse(localStorage.getItem(elemento))
+            todasLasTareas[elementoParceado.categoria].push(elementoParceado)
+        }
+    }else{
+        alert("Es la primera vez que utilizas esta aplicacion o no has agregado tareas aun")
+    }
+ }
+
+ revisarLocalStorage()
+
+Compras () //Me crea li a partir de los valores de el array de todaslastareas
+Trabajo()
+Universidad()
+Ocio()
+Otro()
 
 
  
