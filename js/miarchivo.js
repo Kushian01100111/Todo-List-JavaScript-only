@@ -9,9 +9,6 @@ document.getElementById("fechaParaFinalizar").addEventListener("change", functio
      console.log(input)
 })
 
-function capitalizeFirstLetter(string) {//Esta funcion capitaliza la primera palabra de un string
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
 const todasLasTareas = {//El objeto contenedor de las tareas
     "Compras" : [],
     "Trabajo" : [],
@@ -29,23 +26,25 @@ class Tareas{//Constructor con la funcion de crear un nueva tarea
         this.fechaDeIntroducccion = new Date
     }
     tuTareaFueAñadida(){//metodo que me muestra que la tarea fue agregada a una categoria con exito
-        alert(`Tu tarea ${this.nombre} fue añadida a ${this.categoria} el ${this.fechaDeIntroducccion.getDate()}/${this.fechaDeIntroducccion.getUTCMonth()+ 1}/${this.fechaDeIntroducccion.getFullYear()}`)
+        swal({
+            title:`Tu tarea fue añadida con exito!`,
+            text: `Tu tarea ${this.nombre} fue añadida a ${this.categoria} el ${this.fechaDeIntroducccion.getDate()}/${this.fechaDeIntroducccion.getUTCMonth()+ 1}/${this.fechaDeIntroducccion.getFullYear()}`,
+            icon: 'success' })
     }
 }    
 
 let one ;
-
-//function eliminar(categoria, nombre){
-  //  let index; 
-   // for(let i = 0; i < todasLasTareas[categoria].length; i++){
-     //   if(todasLasTareas[categoria][i].nombre === nombre){
-       //     index = i
-     //   }
-   // }
-   // todasLasTareas[categoria].splice(index, 1)
-   // localStorage.removeItem(nombre)
-    //location.reload()
-//}
+    function eliminar(categoria, nombre){
+     let index; 
+     for(let i = 0; i < todasLasTareas[categoria].length; i++){
+           if(todasLasTareas[categoria][i].nombre === nombre){
+             index = i
+           }
+     }
+     todasLasTareas[categoria].splice(index, 1)
+     localStorage.removeItem(nombre)
+    location.reload()
+}
 
 function Compras (){//Me generan una lista dependiendo los objetos o tareas que se encuentran dentro de la categoria seleccionada
 let Compras = todasLasTareas["Compras"]
@@ -56,13 +55,6 @@ let Compras = todasLasTareas["Compras"]
     let li = document.createElement('li')
     ul.appendChild(li)
     li.innerHTML += n.nombre
-
-       // let eliminarTarea = document.createElement('button')
-       // li.appendChild(eliminarTarea)
-        //eliminarTarea.innerText = "Eliminar tarea"
-       // eliminarTarea.classList = "eliminar"
-       // eliminarTarea.id = `${n.nombre}`
-        //document.querySelector(`#${n.nombre}`).addEventListener('click', eliminar("Compras",n.nombre))
  })
 }
 
@@ -76,12 +68,6 @@ Trabajo.forEach(n=>{
    ul.appendChild(li)
 
    li.innerHTML += n.nombre
-
-   //let eliminarTarea = document.createElement('button')
-     //   li.appendChild(eliminarTarea)
-     //   eliminarTarea.innerText = "Eliminar tarea"
-     //   eliminarTarea.classList = "eliminar"
-     //   document.querySelector(`#${n.nombre}`).addEventListener('click', eliminar("Trabajo",n.nombre))
 })
 
 }
@@ -96,12 +82,6 @@ let Universidad = todasLasTareas["Universidad"]
     ul.appendChild(li)
 
     li.innerHTML += n.nombre
-
-    //let eliminarTarea = document.createElement('button')
-       // li.appendChild(eliminarTarea)
-       // eliminarTarea.innerText = "Eliminar tarea"
-       // eliminarTarea.classList = "eliminar"
-       // document.querySelector(`#${n.nombre}`).addEventListener('click', eliminar("Universidad",n.nombre))
  })
 }
 
@@ -115,12 +95,6 @@ let Ocio = todasLasTareas["Ocio"]
     ul.appendChild(li)
 
     li.innerHTML += n.nombre
-
-   // let eliminarTarea = document.createElement('button')
-       // li.appendChild(eliminarTarea)
-       // eliminarTarea.innerText = "Eliminar tarea"
-       // eliminarTarea.classList = "eliminar"
-       // document.querySelector(`#${n.nombre}`).addEventListener('click',eliminar("Ocio",n.nombre))
  })
 }
 
@@ -134,12 +108,6 @@ function Otro(){
     ul.appendChild(li)
 
     li.innerHTML += n.nombre
-
-   // let eliminarTarea = document.createElement('button')
-      //  li.appendChild(eliminarTarea)
-       // eliminarTarea.innerText = "Eliminar tarea"
-       // eliminarTarea.classList = "eliminar"
-       // document.querySelector(`#${n.nombre}`).addEventListener('click',eliminar("Otro",n.nombre))
  })
 }
 
@@ -192,12 +160,3 @@ Trabajo()
 Universidad()
 Ocio()
 Otro()
-
-
- 
- 
-
- 
-
-
- 

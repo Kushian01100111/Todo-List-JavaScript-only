@@ -5,13 +5,17 @@
 
 html{
     font-size: 62.5%;
+    background-color: #002B50;
 }
 
 main{
     font-size: 1.6rem;
     font-family: 'noto sans','roboto',sans-serif;
+    color: #f3f3f3;
     max-width: 1020px;
     margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #categorias{
@@ -25,18 +29,40 @@ main{
     width: 450px;
     max-width: 498px;
     min-height: 240px;
-    border: 1px black solid;
-    border-radius: 5px;
+    border: 2px #f3f3f3 solid;
+    background-color: #f3f3f3;
+    color: #002B50;
+    box-shadow: 9px 6px 13px 2px black;
+    border-radius: 7px;
     text-align: center;
 }
 
+#tarea{
+    color: #002B50;
+    background-color: #f3f3f3;
+    padding: 5px;
+    border-radius: 3px;
+    font-family: inherit;
+    border: 0.5px #f3f3f3;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 10px;
+    max-width:m 150px;
+    align-self: center;
+}
+
 #form{
+    padding-top: 20px;
     max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: auto;
 }
 
 input , label, select{
     width: 100%;
+    font-family: inherit;
 }
 
 li{
@@ -44,6 +70,22 @@ li{
     list-style: none;
 }
 
-.eliminar{
-    
+.swal-title{
+    color: #002B50;
+    font-family: 'noto sans','roboto', sans-serif;
+}
+
+.swal-text {
+    color: #002B50;
+    text-align: center;
+    font-family: 'noto sans','roboto', sans-serif;
+}
+
+.swal-button{
+    background-color: #002B50;
+    color: #f3f3f3;
+}
+
+.swal-modal{
+    border-radius: 10px;
 }
