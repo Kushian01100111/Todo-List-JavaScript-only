@@ -1,13 +1,19 @@
+let meme ;
+
+fetch('https://api.imgflip.com/get_memes') // llama a una api de memes randoms
+    .then(response => response.json())
+    .then(data => {//me devuelve una array de memes
+        console.log(data)
+        let numero = Math.floor(Math.random() * 100)//escoge uno de los 100 que manda
+        meme = data.data.memes[numero].url//asigna el url de la imagen a una variable
+        document.getElementById('api').src = meme // y el valor de src de una imagen es cambiado
+    });
+    
+let DateTime = luxon.DateTime;
+
 document.querySelector('button').addEventListener('click', generaNuevaTarea)//Se pasa el proceso de prompts y alerts a un event listeners que llama 
 const tar = document.querySelector('#nombreTarea')
 const cate = document.querySelector('#nombreCategoria')
-let fechasParaFinalizar ;
-document.getElementById("fechaParaFinalizar").addEventListener("change", function() { //Agarra el valor de la fecha a partir del input de Date.
-    let input = this.value;
-    let dateEntered = new Date(input);
-     fechasParaFinalizar = input
-     console.log(input)
-})
 
 const todasLasTareas = {//El objeto contenedor de las tareas
     "Compras" : [],
@@ -37,7 +43,7 @@ let one ;
     function eliminar(categoria, nombre){
      let index; 
      for(let i = 0; i < todasLasTareas[categoria].length; i++){
-           if(todasLasTareas[categoria][i].nombre === nombre){
+           if(todasLasTareas[categoria][i].nombre == nombre){
              index = i
            }
      }
@@ -46,100 +52,122 @@ let one ;
     location.reload()
 }
 
-function Compras (){//Me generan una lista dependiendo los objetos o tareas que se encuentran dentro de la categoria seleccionada
-let Compras = todasLasTareas["Compras"]
+function iterarTodasLasCategorias(cate){
 
- Compras.forEach(n=>{
-    let ul = document.createElement('ul')
-    document.getElementById('compras').appendChild(ul)
-    let li = document.createElement('li')
-    ul.appendChild(li)
-    li.innerHTML += n.nombre
- })
+    let Compras =()=>{//Me generan una lista dependiendo los objetos o tareas que se encuentran dentro de la categoria seleccionada
+        let Compras = todasLasTareas["Compras"]
+        
+         Compras.forEach(n=>{
+            let ul = document.createElement('ul')
+            document.getElementById('compras').appendChild(ul)
+            let li = document.createElement('li')
+            ul.appendChild(li)
+            li.innerHTML += n.nombre
+         })
+        }
+        
+    let Trabajo = () =>{
+            let Trabajo = todasLasTareas["Trabajo"]
+        
+        Trabajo.forEach(n=>{
+           let ul = document.createElement('ul')
+           document.getElementById('trabajo').appendChild(ul)
+           let li = document.createElement('li')
+           ul.appendChild(li)
+        
+           li.innerHTML += n.nombre
+        })
+        
+        }
+        
+    let Universidad= () =>{
+        let Universidad = todasLasTareas["Universidad"]
+        
+         Universidad.forEach(n=>{
+            let ul = document.createElement('ul')
+            document.getElementById('universidad').appendChild(ul)
+            let li = document.createElement('li')
+            ul.appendChild(li)
+        
+            li.innerHTML += n.nombre
+         })
+        }
+        
+    let Ocio = () =>{
+        let Ocio = todasLasTareas["Ocio"]
+        
+         Ocio.forEach(n=>{
+            let ul = document.createElement('ul')
+            document.getElementById('ocio').appendChild(ul)
+            let li = document.createElement('li')
+            ul.appendChild(li)
+        
+            li.innerHTML += n.nombre
+         })
+        }
+        
+    let Otro= ()=>{
+         let Otro = todasLasTareas["Otro"]
+        
+         Otro.forEach(n=>{
+            let ul = document.createElement('ul')
+            document.getElementById('otro').appendChild(ul)
+            let li = document.createElement('li')
+            ul.appendChild(li)
+        
+            li.innerHTML += n.nombre
+         })
+        }
+
+    switch(cate){
+        case "Compras":
+            Compras()
+            break;
+        case "Trabajo":
+            Trabajo()
+            break;
+        case "Universidad":
+            Universidad()
+            break;
+        case "Ocio":
+            Ocio()
+            break;
+        case "Otro":
+            break;
+        default :
+            Compras()
+            Trabajo()
+            Universidad()
+            Ocio()
+            Otro()
+            break;
+    }
 }
 
-function Trabajo(){
-    let Trabajo = todasLasTareas["Trabajo"]
 
-Trabajo.forEach(n=>{
-   let ul = document.createElement('ul')
-   document.getElementById('trabajo').appendChild(ul)
-   let li = document.createElement('li')
-   ul.appendChild(li)
-
-   li.innerHTML += n.nombre
-})
-
-}
-
-function Universidad(){
-let Universidad = todasLasTareas["Universidad"]
-
- Universidad.forEach(n=>{
-    let ul = document.createElement('ul')
-    document.getElementById('universidad').appendChild(ul)
-    let li = document.createElement('li')
-    ul.appendChild(li)
-
-    li.innerHTML += n.nombre
- })
-}
-
-function Ocio(){
-let Ocio = todasLasTareas["Ocio"]
-
- Ocio.forEach(n=>{
-    let ul = document.createElement('ul')
-    document.getElementById('ocio').appendChild(ul)
-    let li = document.createElement('li')
-    ul.appendChild(li)
-
-    li.innerHTML += n.nombre
- })
-}
-
-function Otro(){
- let Otro = todasLasTareas["Otro"]
-
- Otro.forEach(n=>{
-    let ul = document.createElement('ul')
-    document.getElementById('otro').appendChild(ul)
-    let li = document.createElement('li')
-    ul.appendChild(li)
-
-    li.innerHTML += n.nombre
- })
-}
 
 
 function generaNuevaTarea(){ //Me genera una nueva tarea con datos provenientes del DOM y de la interaccion del usuario con los inputs del HTML
     let tarea = tar.value
     let categoria = cate.value
-    let fecha = fechaParaFinalizar
+    let fecha = document.getElementById("fechaParaFinalizar").valueAsDate;
      if(tarea === '' ||  fecha === undefined){ //Me cheekea si el usuario no escribio un nombre de tarea o no escogio una fecha para finalizar la tarea
         alert("No marcate una fecha o no escribiste el nombre de la tarea, por favor rellene el form de forma correcta")
          } else{
-            if(categorias.indexOf(categoria.toUpperCase())  !== -1){
                 one = new Tareas(tarea,categoria,fecha)
+
                 todasLasTareas[categoria].shift()
+
                 todasLasTareas[categoria].push(one)
 
                 localStorage.setItem(one.nombre, JSON.stringify(one))// Añade las nuevas tares a localstorage y utiliza JSON stringify para pasar el objeto a JSON.
                 one.tuTareaFueAñadida();
-               if(categoria === "Compras"){
-                Compras()
-               }else if(categoria === "Trabajo"){
-                Trabajo()
-               }else if(categoria === "Universidad"){
-                Universidad()
-               }else if(categoria === "Ocio"){
-                Ocio()
-               }else{
-                Otro()
-               }
-             }
-         }
- }   
+
+                iterarTodasLasCategorias(categoria)
+                   
+                }         
+}
+
 
  function revisarLocalStorage(){//me revisa si hay elemento guardados en el localstorege 
     if(localStorage.length > 0 ){//si elementos en localstorege me los introduce en el array de todas las tareas
@@ -155,8 +183,4 @@ function generaNuevaTarea(){ //Me genera una nueva tarea con datos provenientes 
 
  revisarLocalStorage()
 
-Compras () //Me crea li a partir de los valores de el array de todaslastareas
-Trabajo()
-Universidad()
-Ocio()
-Otro()
+iterarTodasLasCategorias()

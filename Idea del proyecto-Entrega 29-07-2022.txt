@@ -15,8 +15,9 @@ tareas me muestra las tareas agregadas a el objeto de las tareas.
 de finalizacion de la tarea.
 -Alert: me muestra las tareas agregadas
 
-**Entrega 09-07-2022**
--localStorege añadido en la funcion de generar una tarea
--JSON y stringify utilizado
--añadida una funcion que checkea si hay elementos dentro del localstorege
-me los parcea y los introduce nuevamente en el DOM.
+**Entrega 29-07-2022**
+-llama a una api de memes randoms
+-me devuelve una array de memes
+-escoge uno de los 100 que manda
+-asigna el url de la imagen a una variable
+-y el valor de src de una imagen es cambiado

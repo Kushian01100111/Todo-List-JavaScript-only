@@ -89,3 +89,10 @@ li{
 .swal-modal{
     border-radius: 10px;
 }
+
+
+#api{
+    display: flex;
+    max-width: 350px;
+    margin: 0 auto;
+}
