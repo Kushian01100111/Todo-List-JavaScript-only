@@ -47,7 +47,7 @@ main{
     font-size: 1.6rem;
     font-weight: 700;
     margin-top: 10px;
-    max-width:m 150px;
+    max-width: 150px;
     align-self: center;
 }
 
@@ -60,14 +60,37 @@ main{
     margin: auto;
 }
 
+
+
 input , label, select{
     width: 100%;
     font-family: inherit;
 }
 
 li{
+    display: flex;
+    gap: 10.5px;
+    flex-direction: row;
     font-style: italic;
     list-style: none;
+    justify-content: center;
+    align-items: baseline;
+}
+
+span{
+    font-style: normal;
+    color: #989797
+}
+
+button{
+    color:#f3f3f3;
+    background-color: #002B50;
+    border-radius: 3px;
+    font-family: inherit;
+    border: 0.5px #f3f3f3;
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 0px 2.5px 0px 2.5px;
 }
 
 .swal-title{
