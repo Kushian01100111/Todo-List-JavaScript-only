@@ -11,42 +11,41 @@
     <title>TODO Personal</title>
 </head>
 <body>
-    <img src="" alt="API MEME" id="api">
     <main>
+        <section id="form">
+            <label for="nombreTarea">Nombre de la tarea</label>
+            <input type="text"  id="nombreTarea">
+            <label for="nombreCategoria">Categoria</label>
+            <select name="" id="nombreCategoria">
+                <option value="Compras">Compras</option>
+                <option value="Trabajo">Trabajo</option>
+                <option value="Universidad">Universidad</option>
+                <option value="Ocio">Ocio</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <label for="fechaParaFinalizar">Fecha en la que quieres finalizar la tarea</label>
+            <input type="date" name="" id="fechaParaFinalizar">
+            <button id="tarea">Ingresar tarea</button>
+    </section>
         <section id="categorias">
-        <div class="displayDeTareas" id="compras">
+        <div class="displayDeTareas" id="Compras">
             <h2>Compras</h2>
         </div>
-        <div class="displayDeTareas" id="trabajo">
+        <div class="displayDeTareas" id="Trabajo">
             <h2>Trabajo</h2>
         </div>
-        <div class="displayDeTareas" id="universidad">
+        <div class="displayDeTareas" id="Universidad">
             <h2>Universidad</h2>
         </div>
-        <div class="displayDeTareas" id="ocio">
+        <div class="displayDeTareas" id="Ocio">
             <h2>Ocio</h2>
         </div>
-        <div class="displayDeTareas" id="otro">
+        <div class="displayDeTareas" id="Otro">
             <h2>Otro</h2>
         </div>
     </section>
-        <section id="form">
-                <label for="nombreTarea">Nombre de la tarea</label>
-                <input type="text"  id="nombreTarea">
-                <label for="nombreCategoria">Categoria</label>
-                <select name="" id="nombreCategoria">
-                    <option value="Compras">Compras</option>
-                    <option value="Trabajo">Trabajo</option>
-                    <option value="Universidad">Universidad</option>
-                    <option value="Ocio">Ocio</option>
-                    <option value="Otro">Otro</option>
-                </select>
-                <label for="fechaParaFinalizar">Fecha en la que quieres finalizar la tarea</label>
-                <input type="date" name="" id="fechaParaFinalizar">
-                <button id="tarea">Ingresar tarea</button>
-        </section>
     </main>
-    
+    <img src="" alt="API MEME" id="api">
 </body>
 <script src="https://cdn.jsdelivr.net/npm/humanize-duration@3.25.1/humanize-duration.min.js"></script>
 <script src="https://moment.github.io/luxon/global/luxon.js"></script>
