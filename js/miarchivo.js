@@ -2,7 +2,7 @@ Date.prototype.addDays = function(days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
-}
+}//añade dias a una fecha
 
 let noBarrita = (x)=>{
     return x.split("-").join(" ")
@@ -27,6 +27,8 @@ fetch('https://api.imgflip.com/get_memes') // llama a una api de memes randoms
             //asigna el url de la imagen a una variable
         document.getElementById('api').src = data.data.memes[numero].url // y el valor de src de una imagen es cambiado
     });
+
+document.getElementById('fechaParaFinalizar').min = new Date().toISOString().split("T")[0]
     
 const DateTime = luxon.DateTime;
 const Interval = luxon.Interval
