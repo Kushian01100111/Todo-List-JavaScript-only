@@ -1,4 +1,4 @@
-# Proyecto-CoderHouse-JavaScript
+#TODO list sin Backend code / Todo list without Backend code 
 Es un simulador de una lista por hacer o TODO list, le pregunta el usuario que tarea desea hacer en un futuro, le pregunta dentro de que categoria caeria esta tarea de entre 5 categorias y la fecha en la que el usuario desee terminar esta tarea. 
 
 Con esa informacion me generara un nuevo objeto que sera introducido en el objeto de las tarea, especificamente en la categoria selecionada.
